@@ -3,7 +3,9 @@ function main() {
     const btnSend =  document.querySelector('.send');
     const total = document.querySelector('.total');
     const msg = document.querySelector('.result-msg')
-    // TODO add way to show the previous results
+    const previousContainer = document.querySelector('.previous-list')
+    const previousTitle = document.querySelector('.previous-title')
+    let previous = JSON.parse(localStorage.getItem('previous')) || []
 
     btnSend.addEventListener('click', () => {
         if (!input.value) return;
@@ -17,8 +19,20 @@ function main() {
         }
     });
 
+    function renderPrevious() {
+        previousContainer.innerHTML = ''
+        if (previous.length > 0){
+            // console.log(lenght(previous));
+            previousTitle.innerText = 'Previous searches:'
+        }
+        previous.map(e => {
+            let p = document.createElement('li')
+            p.innerText = `${e.search} = ${e.final}`
+            previousContainer.appendChild(p)
+        })
+    }
+
     function start() {
-        msg.innerText = `The digital root of "${input.value}" is:`
         getDigitalRoot(input.value)
         input.value = ''
         input.focus();
@@ -26,8 +40,10 @@ function main() {
 
     function getDigitalRoot(value) {
         if (isNaN(value)) return;
+        msg.innerText = `The digital root of "${value}" is:`
         let final = handleValue(value)
         total.innerText = final
+        setPrevious(value, final)
     }
 
     function handleValue(value) {
@@ -37,6 +53,15 @@ function main() {
         if (total >= 10) return handleValue(total.toString()) 
         return total
     }
+
+    function setPrevious(search, final) {
+        obj = {search, final}
+        previous.push(obj)
+        localStorage.setItem('previous',JSON.stringify(previous))
+        renderPrevious()
+    }
+
+    renderPrevious()
 }
 
 main()
