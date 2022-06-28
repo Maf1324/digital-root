@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200;300&display=swap');
+
+* {
+   margin: 0; 
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+
+}
+
+body {
+    /* --teste: red; */
+    font-family: 'Anek Latin', sans-serif;
+    background-color: #222;
+
+}
+
+.container {
+    background-color: var(--teste, #eee);
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.number-search {
+    /* background-color: red; */
+    border: 1px solid var(--main-text-color, black);
+    display: flex;
+    gap: 0.2rem;
+    border-radius: 3px;
+    padding: 0.5rem;
+}
+
+.valor,
+.send {
+    background-color: transparent;
+    color: var(--main-text-color, black);
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.send {
+    cursor: pointer;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-msg {
+    font-size: 1.2rem;
+}
