@@ -5,6 +5,8 @@ function main() {
     const msg = document.querySelector('.result-msg')
     const previousContainer = document.querySelector('.previous-list')
     const previousTitle = document.querySelector('.previous-title')
+    const random = document.querySelector('.btn-random')
+
     let previous = JSON.parse(localStorage.getItem('previous')) || []
 
     btnSend.addEventListener('click', () => {
@@ -18,6 +20,11 @@ function main() {
         start()
         }
     });
+
+    random.addEventListener('click', ()=> {
+        input.value = makeRandom()
+        start()
+    })
 
     function renderPrevious() {
         previousContainer.innerHTML = ''
@@ -59,6 +66,10 @@ function main() {
         previous.push(obj)
         localStorage.setItem('previous',JSON.stringify(previous))
         renderPrevious()
+    }
+
+    function makeRandom(min=11, max=9999999) {
+        return Math.floor(Math.random() * (max - min) ) + min;
     }
 
     renderPrevious()
