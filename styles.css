@@ -50,8 +50,25 @@ body {
     font-size: 1.2rem;
 }
 
+.btn-random {
+    border-radius: 3px;
+    border: 1px solid var(--main-text-color, black);
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all ease-in 100ms;
+}
+
 .send {
     cursor: pointer;
+    transition: all ease-in 100ms;
+}
+
+.btn-random:active {
+    background-color: black;
+    color: white;
 }
 
 .result {
