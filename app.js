@@ -26,7 +26,7 @@ function main() {
             previousTitle.innerText = 'Previous searches:'
         }
         previous.map(e => {
-            let p = document.createElement('li')
+            let p = document.createElement('p')
             p.innerText = `${e.search} = ${e.final}`
             previousContainer.appendChild(p)
         })

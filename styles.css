@@ -11,10 +11,9 @@
 }
 
 body {
-    /* --teste: red; */
     font-family: 'Anek Latin', sans-serif;
     background-color: #222;
-
+    letter-spacing: 1px;
 }
 
 .container {
@@ -63,4 +62,20 @@ body {
 
 .result-msg {
     font-size: 1.2rem;
+}
+
+.previous {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.previous-title {
+    font-size: 1.4rem;
+}
+
+.previous-list {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
 }
